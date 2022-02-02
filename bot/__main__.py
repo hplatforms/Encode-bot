@@ -1,7 +1,6 @@
 from pyrogram import filters
 from bot import app, data, sudo_users
 from bot.helper.utils import add_task
-from pyrogram.types.bots_and_keyboards import InlineKeyboardButton, InlineKeyboardMarkup
 
 video_mimetype = [
   "video/x-flv",
@@ -19,20 +18,9 @@ video_mimetype = [
   "video/mpeg"
   ]
 
-@app.on_message(filters.user(sudo_users) & filters.incoming & filters.command(['start', 'help']))
+@app.on_message(filters.incoming & filters.command(['start', 'help']))
 def help_message(app, message):
-        message.reply_text(f"Merhaba {0}\nTelegram dosyalarını x265'te kodlayabilirim aynı zamanda HEVC olarak boyut düşürebilirim, bana bir video göndermeniz yeterli.", quote=True)
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(
-                            "Destek", url="https://t.me/trbotlistesi"
-                        )
-                    ]
-                ]
-            ),
-            reply_to_message_id=message.message_id
-        ) 
+    message.reply_text(f"Merhaba {message.from_user.mention()}\nTelegram dosyalarını x265'te kodlayabilirim aynı zamanda HEVC olarak boyut düşürebilirim, bana bir video göndermeniz yeterli.", quote=True)
     
 @app.on_message(filters.user(sudo_users) & filters.incoming & (filters.video | filters.document))
 def encode_video(app, message):
