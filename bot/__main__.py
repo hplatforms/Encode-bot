@@ -28,7 +28,7 @@ def encode_video(app, message):
       if not message.document.mime_type in video_mimetype:
         message.reply_text("```Geçersiz Video!\nGeçerli bir video dosyası olduğundan emin olun.```", quote=True)
         return
-    message.reply_text("```✔️ Sıraya Eklendi...\nSıra: {len(data)}\n\nSabırlı olun...\n\n#kuyruk```", quote=True)
+    message.reply_text(f"`✔️ Sıraya Eklendi...\nSıra: {len(data)}\n\nSabırlı olun...\n\n#kuyruk`", quote=True)
     data.append(message)
     if len(data) == 1:
       add_task(message)
