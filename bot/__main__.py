@@ -20,8 +20,7 @@ video_mimetype = [
 
 @app.on_message(filters.user(sudo_users) & filters.incoming & filters.command(['start', 'help']))
 def help_message(app, message):
-        message.reply_text(
-            text=Translation.START_TEXT.format(message.from_user.mention()),
+        message.reply_text(f"Merhaba {0}\nTelegram dosyalarını x265'te kodlayabilirim aynı zamanda HEVC olarak boyut düşürebilirim, bana bir video göndermeniz yeterli.", quote=True)
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
