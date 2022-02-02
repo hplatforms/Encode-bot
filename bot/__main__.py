@@ -1,12 +1,16 @@
 from pyrogram import filters
 from bot import app, data, sudo_users
 from bot.helper.utils import add_task
+from .translation import Translation
+
 
 video_mimetype = [
   "video/x-flv",
   "video/mp4",
+  "video/avi",
+  "video/mkv",
   "application/x-mpegURL",
-  "video/MP2T",
+  "video/mp2t",
   "video/3gpp",
   "video/quicktime",
   "video/x-msvideo",
