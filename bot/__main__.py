@@ -26,7 +26,7 @@ video_mimetype = [
 def help_message(app, message):
     message.reply_text(f"Merhaba {message.from_user.mention()}\nTelegram dosyalarını x265'te kodlayabilirim aynı zamanda HEVC olarak boyut düşürebilirim, bana bir video göndermeniz yeterli.", quote=True)
     
-@app.on_message(filters.video | filters.document))
+@app.on_message(filters.incoming & (filters.video))
 def encode_video(app, message):
     if message.document:
       if not message.document.mime_type in video_mimetype:
